@@ -3,11 +3,19 @@ declare(strict_types = 1);
 
 namespace Src;
 
+
+
+use Exception;
 use Src\Controllers\WidgetController;
+use Src\Repositories\ProductRepository;
 
-class RouterClass {
 
+Class RouterClass extends ToolsClass {
 
+    /**
+     * @param string $request
+     * @return void
+     */
     public function destination(string $request): void
     {
         $routedTo = $this->pointers($request);
@@ -34,6 +42,7 @@ class RouterClass {
         $routes = [
             'GET' => [
                 '/' => [WidgetController::class, 'index'],
+                '/about' => [WidgetController::class, 'about']
             ],
             'POST' => [
                 '/order' => [WidgetController::class, 'order']
@@ -103,5 +112,6 @@ class RouterClass {
 
 
     }
+
 
 }
