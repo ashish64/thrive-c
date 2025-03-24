@@ -1,0 +1,20 @@
+
+services:
+  app:
+    container_name: thrive-cart
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./backend:/app
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+    networks:
+      - thrive_nt
+
+networks:
+  thrive_nt:
+    driver: bridge

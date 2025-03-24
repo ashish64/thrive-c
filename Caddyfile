@@ -1,0 +1,23 @@
+ {
+     admin off
+ }
+
+ :8080 {
+     # Enable FrankenPHP
+     php_server
+
+     # Root directory of the application
+     root * /app
+
+     # Enable compression
+     encode gzip
+
+     # PHP configuration
+     php_fastcgi
+
+     # Serve static files directly
+     file_server
+
+     # Route all requests to index.php if the file doesn't exist
+     try_files {path} /index.php?{query}
+ }

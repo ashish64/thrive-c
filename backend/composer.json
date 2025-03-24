@@ -1,0 +1,13 @@
+{
+    "name": "ashis/backend",
+    "require-dev": {
+        "phpunit/phpunit": "^11.5",
+        "phpstan/phpstan": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ashis\\Backend\\": "src/"
+        }
+    },
+    "require": {}
+}
