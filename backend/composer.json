@@ -1,12 +1,15 @@
 {
     "name": "ashis/backend",
+    "description": "PHP API Application with FrankenPHP",
+    "type": "project",
+    "license": "MIT",
     "require-dev": {
         "phpunit/phpunit": "^11.5",
         "phpstan/phpstan": "^2.1"
     },
     "autoload": {
         "psr-4": {
-            "Ashis\\Backend\\": "src/"
+            "Src\\": "src/"
         }
     },
     "require": {}
