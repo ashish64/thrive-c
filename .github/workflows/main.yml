@@ -21,12 +21,9 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.4'  # Or any other version you need
-      
-      - name: Switch Folder
-        run: cd backend
-        
+          
       - name: Install Composer dependencies
-        run: composer install --no-ansi --no-interaction --no-progress
+        run: composer install --no-ansi --no-interaction --no-progress --working-dir=/backend
 
       - name: Run PHPUnit tests
         run: vendor/bin/phpunit
