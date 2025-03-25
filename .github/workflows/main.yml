@@ -26,4 +26,5 @@ jobs:
         run: composer install --no-ansi --no-interaction --no-progress --working-dir=/home/runner/work/thrive-c/thrive-c/backend
 
       - name: Run PHPUnit tests
-        run: /home/runner/work/thrive-c/thrive-c/vendor/bin/phpunit
+        run: vendor/bin/phpunit
+        working-directory: backend
