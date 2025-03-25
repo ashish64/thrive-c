@@ -5,14 +5,17 @@ namespace Src\Controllers;
 
 use Src\Interfaces\ProductRepositoryInterface;
 use Src\Repositories\ProductRepository;
+use Src\Services\OrderService;
 use Src\ToolsClass;
 
 class WidgetController extends ToolsClass {
 
     public ProductRepositoryInterface $productRepository;
+    public OrderService $orderService;
     public function __construct()
     {
         $this->productRepository = new ProductRepository();
+        $this->orderService = new OrderService();
     }
 
     /**
@@ -24,7 +27,18 @@ class WidgetController extends ToolsClass {
         return $this->ok($this->productRepository->getAll());
     }
 
-    public function order() {
-        return "order";
+    /**
+     * Post product codes and returns calculated cart
+     * @param array<string> $request
+     * @return string
+     */
+    public function order(array $request): string
+    {
+        $order = $this->orderService->shoppingCart($request);
+
+        return $this->ok($order);
     }
+
+
+
 }
