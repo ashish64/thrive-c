@@ -78,8 +78,8 @@ class RouterClass extends ToolsClass
     private function requestValidator(mixed $request): ?array
     {
         // if post data is empty
-        if ($request === null || empty($request)) {
-            return null;
+        if (empty($request)) {
+            $this->dumpThis("Payload is empty");
         }
 
         // if request doesnt appear to be an array
