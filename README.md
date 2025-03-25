@@ -2,6 +2,25 @@
 
 This is a simple PHP API application built with FrankenPHP. It provides functionality for retrieving product information and processing orders.
 
+## Installation
+
+ 1. Clone the repo below
+		`https://github.com/ashish64/thrive-c.git`
+		
+ 2. CD into the folder and run the command below 
+	 `docker-compose up -d --build`
+	 
+ 3. Once the container is available, enter the container with
+    `docker exec -it thrive-cart bash`
+    
+ 4. Lastly, Run:
+	`composer install`
+
+The application should now be available on 
+`http://127.0.0.1:8080`
+
+	
+
 ## Endpoints
 
 The application exposes the following endpoints:
@@ -13,7 +32,6 @@ The application exposes the following endpoints:
     * **Response:**
         * `200 OK` - A JSON object containing an array of products with their names and prices.
         * `404 Not Found` - If the endpoint is incorrect
-
     * **Example Response:**
 
         ```json
@@ -35,6 +53,11 @@ The application exposes the following endpoints:
             "status": 200
         }
         ```
+		* **CURL for Post man**
+		```
+		curl --location 'http://127.0.0.1:8080' \ --header 'accept: application/json'
+		 ```
+       
 
 ### 2.  `POST /order`
 
@@ -74,3 +97,30 @@ The application exposes the following endpoints:
             "status": 200
         }
         ```
+        * ** Curl for postman **
+        ```
+	        curl --location '127.0.0.1:8080/order'
+	         \ --header 'Content-Type: application/json' \ --data '["B01", "B01", "R01", "R01", "R01"]'
+        ```
+
+Folder structure:
+```
+backend/ 
+├── composer.json 
+├── index.php 
+├── phpunit.xml 
+├── src/ 
+│ ├── Controllers/ 
+│ │ └── WidgetController.php 
+│ ├── Interfaces/ 
+│ │ └── ProductRepositoryInterface.php 
+│ ├── Repositories/ 
+│ │ └── ProductRepository.php 
+│ ├── Services/ 
+│ │ └── OrderService.php 
+│ └── ToolsClass.php 
+├── tests/ 
+│ └── WidgetControllerTest.php
+├── Vendor/ 
+
+```
