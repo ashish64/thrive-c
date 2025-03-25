@@ -23,7 +23,7 @@ jobs:
           php-version: '8.4'  # Or any other version you need
           
       - name: Install Composer dependencies
-        run: composer install --no-ansi --no-interaction --no-progress --working-dir=/backend
+        run: composer install --no-ansi --no-interaction --no-progress --working-dir=/home/runner/work/thrive-c/thrive-c/backend
 
       - name: Run PHPUnit tests
         run: vendor/bin/phpunit
